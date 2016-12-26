@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "WSLayout.h"
 
 #import "AFNetworking.h"
-#import "UIImageView+WebCache.h"
+#import "CellModel.h"
+#import "WSCollectionCell.h"
+#import "WSLayout.h"
+
 
 @interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -20,10 +22,8 @@
 @end
 
 @implementation ViewController {
-    NSMutableArray *array;
-    NSMutableArray *ImgURLArray;
-    NSMutableArray *ImgWidthArray;
-    NSMutableArray *ImgHeightArray;
+
+    NSMutableArray *modelArray;
     
 }
 
@@ -39,22 +39,21 @@
     
     [manager GET:urlStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@",responseObject);
-        array = responseObject[@"data"];
+        NSMutableArray *array = [responseObject[@"data"] mutableCopy];
+        [array removeLastObject];
         
-        ImgURLArray = [NSMutableArray array];
-        ImgWidthArray = [NSMutableArray array];
-        ImgHeightArray = [NSMutableArray array];
-        for (NSInteger i = 0; i < array.count-1; i++) {
-            NSDictionary *dic = array[i];
-            NSString *url = dic[@"image_url"];
-            NSString *width = dic[@"image_width"];
-            NSString *height = dic[@"image_height"];
-            NSLog(@"----%@",url);
-            [ImgURLArray addObject:url];//装图片地址
-            [ImgWidthArray addObject:width];//装图片的宽
-            [ImgHeightArray addObject:height];//装图片的高
+        modelArray = [NSMutableArray array];
+        for (NSDictionary *dic in array) {
+            
+            CellModel *model = [[CellModel alloc]init];
+            model.imgURL = dic[@"image_url"];
+            model.imgWidth = [dic[@"image_width"] floatValue];
+            model.imgHeight = [dic[@"image_height"] floatValue];
+            model.title = dic[@"abs"];
+            
+            [modelArray addObject:model];
         }
-     
+        
         [self _creatSubView];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -70,6 +69,10 @@
 - (void)_creatSubView {
     
     self.wslayout = [[WSLayout alloc] init];
+    self.wslayout.lineNumber = 2; //列数
+    self.wslayout.rowSpacing = 5; //行间距
+    self.wslayout.lineSpacing = 5; //列间距
+    self.wslayout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
     
     // 透明时用这个属性(保证collectionView 不会被遮挡, 也不会向下移)
     //self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -77,24 +80,23 @@
     //self.extendedLayoutIncludesOpaqueBars = YES;
     self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-64) collectionViewLayout:self.wslayout];
     
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"collectionCell"];
+    [self.collectionView registerClass:[WSCollectionCell class] forCellWithReuseIdentifier:@"collectionCell"];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-    self.collectionView.backgroundColor = [UIColor whiteColor];
-    
-
+    self.collectionView.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:self.collectionView];
+    
     
     //返回每个cell的高   对应indexPath
     [self.wslayout computeIndexCellHeightWithWidthBlock:^CGFloat(NSIndexPath *indexPath, CGFloat width) {
         
-        CGFloat OW = [ImgWidthArray[indexPath.row] floatValue];
-        CGFloat OH = [ImgHeightArray[indexPath.row] floatValue];
-        CGFloat NW = self.view.frame.size.width/2-15;
+        CellModel *model = modelArray[indexPath.row];
+        CGFloat oldWidth = model.imgWidth;
+        CGFloat oldHeight = model.imgHeight;
         
-        CGFloat NH = OH*NW / OW;
-        
-        return NH;
+        CGFloat newWidth = width;
+        CGFloat newHeigth = oldHeight*newWidth / oldWidth;
+        return newHeigth;
     }];
 }
 
@@ -105,27 +107,23 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return array.count-1;
+    
+    return modelArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
+    WSCollectionCell *cell = (WSCollectionCell *)[self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
     
-    NSString *imgURL = [array objectAtIndex:indexPath.row][@"image_url"];
-
-    
-    
-    UIImageView *imgV = [[UIImageView alloc]initWithFrame:cell.contentView.bounds];
-    [imgV sd_setImageWithURL:[NSURL URLWithString:imgURL]];
-    
-    cell.backgroundView = imgV;
-    
+    cell.model = modelArray[indexPath.row];
     
     return cell;
 }
 
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSLog(@"选中了第%ld个item",indexPath.row);
+}
 
 
 @end

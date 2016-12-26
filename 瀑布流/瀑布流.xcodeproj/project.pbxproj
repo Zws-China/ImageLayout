@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		883A78441E11047B0074B7A2 /* WSCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 883A78431E11047B0074B7A2 /* WSCollectionCell.m */; };
+		883A78471E1104860074B7A2 /* CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 883A78461E1104860074B7A2 /* CellModel.m */; };
+		883A784A1E1117140074B7A2 /* WSLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 883A78491E1117140074B7A2 /* WSLayout.m */; };
 		88ABB0D11D91343E00CB26A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB0D01D91343E00CB26A7 /* main.m */; };
 		88ABB0D41D91343E00CB26A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB0D31D91343E00CB26A7 /* AppDelegate.m */; };
 		88ABB0D71D91343E00CB26A7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB0D61D91343E00CB26A7 /* ViewController.m */; };
 		88ABB0DA1D91343E00CB26A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88ABB0D81D91343E00CB26A7 /* Main.storyboard */; };
 		88ABB0DC1D91343E00CB26A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88ABB0DB1D91343E00CB26A7 /* Assets.xcassets */; };
 		88ABB0DF1D91343E00CB26A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88ABB0DD1D91343E00CB26A7 /* LaunchScreen.storyboard */; };
-		88ABB0E81D91352C00CB26A7 /* WSLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB0E71D91352C00CB26A7 /* WSLayout.m */; };
 		88ABB0F71D91363A00CB26A7 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB0EB1D91363A00CB26A7 /* AFHTTPSessionManager.m */; };
 		88ABB0F81D91363A00CB26A7 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB0EE1D91363A00CB26A7 /* AFNetworkReachabilityManager.m */; };
 		88ABB0F91D91363A00CB26A7 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB0F01D91363A00CB26A7 /* AFSecurityPolicy.m */; };
@@ -39,6 +41,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		883A78421E11047B0074B7A2 /* WSCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSCollectionCell.h; sourceTree = "<group>"; };
+		883A78431E11047B0074B7A2 /* WSCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSCollectionCell.m; sourceTree = "<group>"; };
+		883A78451E1104860074B7A2 /* CellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellModel.h; sourceTree = "<group>"; };
+		883A78461E1104860074B7A2 /* CellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellModel.m; sourceTree = "<group>"; };
+		883A78481E1117140074B7A2 /* WSLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSLayout.h; sourceTree = "<group>"; };
+		883A78491E1117140074B7A2 /* WSLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSLayout.m; sourceTree = "<group>"; };
 		88ABB0CC1D91343E00CB26A7 /* 瀑布流.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "瀑布流.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88ABB0D01D91343E00CB26A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		88ABB0D21D91343E00CB26A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -49,8 +57,6 @@
 		88ABB0DB1D91343E00CB26A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88ABB0DE1D91343E00CB26A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88ABB0E01D91343E00CB26A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		88ABB0E61D91352C00CB26A7 /* WSLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSLayout.h; sourceTree = "<group>"; };
-		88ABB0E71D91352C00CB26A7 /* WSLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSLayout.m; sourceTree = "<group>"; };
 		88ABB0EA1D91363A00CB26A7 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		88ABB0EB1D91363A00CB26A7 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		88ABB0EC1D91363A00CB26A7 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -133,8 +139,12 @@
 				88ABB0D31D91343E00CB26A7 /* AppDelegate.m */,
 				88ABB0D51D91343E00CB26A7 /* ViewController.h */,
 				88ABB0D61D91343E00CB26A7 /* ViewController.m */,
-				88ABB0E61D91352C00CB26A7 /* WSLayout.h */,
-				88ABB0E71D91352C00CB26A7 /* WSLayout.m */,
+				883A78421E11047B0074B7A2 /* WSCollectionCell.h */,
+				883A78431E11047B0074B7A2 /* WSCollectionCell.m */,
+				883A78451E1104860074B7A2 /* CellModel.h */,
+				883A78461E1104860074B7A2 /* CellModel.m */,
+				883A78481E1117140074B7A2 /* WSLayout.h */,
+				883A78491E1117140074B7A2 /* WSLayout.m */,
 				88ABB0E91D91363A00CB26A7 /* AFNetworking */,
 				88ABB0FD1D91364800CB26A7 /* SDWebImage */,
 				88ABB0D81D91343E00CB26A7 /* Main.storyboard */,
@@ -290,16 +300,18 @@
 				88ABB1271D91364800CB26A7 /* SDWebImagePrefetcher.m in Sources */,
 				88ABB1261D91364800CB26A7 /* SDWebImageManager.m in Sources */,
 				88ABB0D71D91343E00CB26A7 /* ViewController.m in Sources */,
-				88ABB0E81D91352C00CB26A7 /* WSLayout.m in Sources */,
 				88ABB12D1D91364800CB26A7 /* UIImageView+WebCache.m in Sources */,
 				88ABB1221D91364800CB26A7 /* SDWebImageCompat.m in Sources */,
 				88ABB0F71D91363A00CB26A7 /* AFHTTPSessionManager.m in Sources */,
+				883A784A1E1117140074B7A2 /* WSLayout.m in Sources */,
 				88ABB1231D91364800CB26A7 /* SDWebImageDecoder.m in Sources */,
 				88ABB12A1D91364800CB26A7 /* UIImage+MultiFormat.m in Sources */,
+				883A78471E1104860074B7A2 /* CellModel.m in Sources */,
 				88ABB12B1D91364800CB26A7 /* UIImage+WebP.m in Sources */,
 				88ABB1251D91364800CB26A7 /* SDWebImageDownloaderOperation.m in Sources */,
 				88ABB12E1D91364800CB26A7 /* UIView+WebCacheOperation.m in Sources */,
 				88ABB1241D91364800CB26A7 /* SDWebImageDownloader.m in Sources */,
+				883A78441E11047B0074B7A2 /* WSCollectionCell.m in Sources */,
 				88ABB1291D91364800CB26A7 /* UIImage+GIF.m in Sources */,
 				88ABB0FC1D91363A00CB26A7 /* AFURLSessionManager.m in Sources */,
 				88ABB0D41D91343E00CB26A7 /* AppDelegate.m in Sources */,
@@ -460,6 +472,7 @@
 				88ABB0E51D91343E00CB26A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

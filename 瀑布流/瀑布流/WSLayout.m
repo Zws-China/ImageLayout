@@ -35,7 +35,7 @@
     if (self) {
         
         //对默认属性进行设置
-        //默认行数 3行
+        //默认行数 2行
         //默认行间距 10.0f
         //默认列间距 10.0f
         //默认内边距 top:10 left:10 bottom:10 right:10
@@ -81,8 +81,6 @@
  */
 - (CGSize)collectionViewContentSize {
     
-    NSLog(@"collectionViewContentSize");
-    
     __block NSString *maxHeightline = @"0";
     [_dicOfheight enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSNumber *obj, BOOL *stop) {
         
@@ -101,9 +99,7 @@
  */
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
     
-    
     return _array;
-    
 }
 
 
